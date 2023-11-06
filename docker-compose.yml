@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  dynamodb-local:
+    # command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data/db"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    # volumes:
+    #   - "./data/db:/home/dynamodblocal/data"
+    # working_dir: /home/dynamodblocal
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    # volumes:
+    #   - ./ticket_overflow:/app/ticket_overflow
+    environment:
+      AWS_ACCESS_KEY_ID: 'DUMMYIDEXAMPLE'
+      AWS_SECRET_ACCESS_KEY: 'DUMMYEXAMPLEKEY'
+      CELERY_BROKER_URL: redis://redis:6379 
+      CELERY_RESULT_BACKEND: redis://redis:6379
+    ports:
+      - "6400:6400"
+    depends_on:
+      - dynamodb-local
+  worker:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    volumes:
+      - ./credentials:/root/.aws/credentials
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379 
+      CELERY_RESULT_BACKEND: redis://redis:6379
+    command: celery --app ticket_overflow.tasks.hamilton worker --loglevel=info
+    depends_on:
+      - app
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
