@@ -14,8 +14,13 @@ DynamoDB setup:
 """
 # Create resource
 os.environ['AWS_SHARED_CREDENTIALS_FILE'] = 'credentials'
-ddb_session = boto3.Session()
-ddb = ddb_session.resource('dynamodb', region_name='us-east-1')    
+ddb_session = boto3.Session(aws_access_key_id="anything",
+                            aws_secret_access_key="anything",
+                            region_name="us-west-2")
+ddb = ddb_session.resource('dynamodb', region_name="us-west-2",
+                            aws_access_key_id="anything",
+                            aws_secret_access_key="anything",
+                            endpoint_url="http://localhost:8000")
 
 def create_app():
     app = Flask(__name__)
@@ -30,7 +35,7 @@ def create_app():
                                 batch.put_item(Item=user)
     except Exception as e:
         pass
-
+    
     # Register the blueprints
     from ticket_overflow.views.\
          concert_service_routes \
