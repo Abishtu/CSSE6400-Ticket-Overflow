@@ -14,4 +14,6 @@ COPY out out
 COPY ticket_overflow ticket_overflow
 COPY ticket_overflow/users.json ticket_overflow/users.json
 
+RUN chmod +x /app/bin/hamilton
+
 CMD ["flask", "--app", "ticket_overflow", "run", "--debug", "--host", "0.0.0.0", "--port", "6400"]

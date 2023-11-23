@@ -37,23 +37,26 @@ def get_seat_layout(input_data):
     try:
         existingFile = open(f"out/seating/{id}.json", "r")
         existingData = json.load(existingFile)
+        existingFile.close()
         if existingData == input_data:
             existingSvg = open(f"out/seating/{id}.svg", "r")
             seats = existingSvg.read()
             existingSvg.close()
             return seats
         else:
-            existingFile.close()
             with open(f"out/seating/{id}.json", "w") as modifyFile:
                 modifyFile.writelines(hamiltonData)
+            modifyFile.close()
     except FileNotFoundError:
         with open(f"out/seating/{id}.json", "w+") as inputDataWriter:
             inputDataWriter.writelines(hamiltonData)
+        inputDataWriter.close()
 
     fileName, output, error = run_hamilton_generation(HAMILTON_SEATING_GEN, 
                                                     id)
     with open(fileName, "r") as svgReader:
         seatingSVG = svgReader.read()
+    svgReader.close()
     return seatingSVG
 
 @celery.task(name="tickets")
@@ -64,23 +67,26 @@ def start_ticket_printing(input_data):
     try:
         existingFile = open(f"out/ticket/{id}.json", "r")
         existingData = json.load(existingFile)
+        existingFile.close()
         if existingData == input_data:
             existingSvg = open(f"out/ticket/{id}.svg", "r")
             seats = existingSvg.read()
             existingSvg.close()
             return seats
         else:
-            existingFile.close()
             with open(f"out/ticket/{id}.json", "w") as modifyFile:
                 modifyFile.writelines(hamiltonData)
+            modifyFile.close()
     except FileNotFoundError:
         with open(f"out/ticket/{id}.json", "w+") as inputDataWriter:
             inputDataWriter.writelines(hamiltonData)
+        inputDataWriter.close()
 
     fileName, output, error = run_hamilton_generation(HAMILTON_TICKET_GEN, 
                                                       id)
     with open(fileName, "r") as svgReader:
         seatingSVG = svgReader.read()
+    svgReader.close()
     return seatingSVG
 
 @celery.task(name="returnsmaeticket")
@@ -88,7 +94,8 @@ def return_printed_ticket(id:str):
     try:
         with open(f"out/ticket/{id}.svg", "r") as svgReader:
             seatingSVG = svgReader.read()
-            return seatingSVG
+        svgReader.close()
+        return seatingSVG
     except FileNotFoundError as fee:
         return "ticket not printed!"
 @celery.task(name="cachereset")

@@ -17,10 +17,70 @@ os.environ['AWS_SHARED_CREDENTIALS_FILE'] = 'credentials'
 ddb_session = boto3.Session(aws_access_key_id="anything",
                             aws_secret_access_key="anything",
                             region_name="us-west-2")
-ddb = ddb_session.resource('dynamodb', region_name="us-west-2",
-                            aws_access_key_id="anything",
-                            aws_secret_access_key="anything",
-                            endpoint_url="http://localhost:8000")
+ddb = ddb_session.resource('dynamodb', 
+                           endpoint_url='http://dynamodb-local:8000',
+                           region_name='us-west-2',
+                           aws_access_key_id="anything",
+                           aws_secret_access_key="anything")
+
+# Create Tables
+try: 
+        ddb.create_table(TableName='Concerts',
+                        AttributeDefinitions=[
+                                {
+                                'AttributeName': 'id',
+                                'AttributeType': 'S'
+                                }
+                        ],
+                        KeySchema=[
+                                {
+                                'AttributeName': 'id',
+                                'KeyType': 'HASH'
+                                }
+                        ],
+                        ProvisionedThroughput= {
+                                'ReadCapacityUnits': 10,
+                                'WriteCapacityUnits': 10
+                        }
+                        )
+        ddb.create_table(TableName='Users',
+                        AttributeDefinitions=[
+                                {
+                                'AttributeName': 'id',
+                                'AttributeType': 'S'
+                                }
+                        ],
+                        KeySchema=[
+                                {
+                                'AttributeName': 'id',
+                                'KeyType': 'HASH'
+                                }
+                        ],
+                        ProvisionedThroughput= {
+                                'ReadCapacityUnits': 10,
+                                'WriteCapacityUnits': 10
+                        }
+                        )
+        ddb.create_table(TableName='Tickets',
+                        AttributeDefinitions=[
+                                {
+                                'AttributeName': 'id',
+                                'AttributeType': 'S'
+                                }
+                        ],
+                        KeySchema=[
+                                {
+                                'AttributeName': 'id',
+                                'KeyType': 'HASH'
+                                }
+                        ],
+                        ProvisionedThroughput= {
+                                'ReadCapacityUnits': 10,
+                                'WriteCapacityUnits': 10
+                        }
+                        )
+except:
+      print("Tables already created")
 
 def create_app():
     app = Flask(__name__)
