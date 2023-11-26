@@ -1,8 +1,24 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=11012823)
-
-# Harikesha Suresh: 46149318
-
 ## Ticket Overflow
+
+### Introduction
+
+This project was developed as a final assessment piece for the ![CSSE6400](https://github.com/CSSE6400) software
+architecutres course during the final year in my undergraduate software engineering program at The University 
+of Queensland (Feb 2023 $-$ Jun 2023).
+
+It functions as a set of REST APIs organised as micro-services to manage all the non-monatry aspects of a
+ticketing system, this includes: creating tickets; registering concerts/events; very elemenatry user
+management and access; and intergrating external binaries to generate SVG images of the tickets
+and of seating allocation at the venue.
+
+### Project Roadmap
+
+#### Migration and Deployment
+
+This section covers all necceary tasks to complete to migrate the submitted version of the code to
+my personal repository. This does not include addition of any new features, any additional code 
+added will only be used to debug issues found and to aid with deploying to cloud.
+
 
 I have terraform files that deploy the application to AWS.
 
