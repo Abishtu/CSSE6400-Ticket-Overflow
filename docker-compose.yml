@@ -13,7 +13,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     restart: always
     # volumes:
     #   - ./ticket_overflow:/app/ticket_overflow
@@ -23,7 +23,7 @@ services:
       CELERY_BROKER_URL: redis://redis:6379 
       CELERY_RESULT_BACKEND: redis://redis:6379
     ports:
-      - "6400:6400"
+      - "80:6400"
     depends_on:
       - dynamodb-local
   worker:
