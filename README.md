@@ -21,7 +21,7 @@ added will only be used to debug issues found and to aid with deploying to cloud
 
 - [x] Migration from original course repo to personal repository, this includes inspecting the application and running functionality tests to check if the applications runs **locally**.
 
-- [ ] Manual deployment of application to an AWS cloud instance
+- [x] Manual deployment of application to an AWS cloud instance
 
 - [ ] Automating the deployment process with Terraform scripts.
 
