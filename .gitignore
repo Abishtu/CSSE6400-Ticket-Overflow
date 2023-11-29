@@ -37,4 +37,4 @@ terraform.rc
 credentials
 *.pem
 workshop_accessKeys.csv
-./auth/*
+**/auth/*
