@@ -12,7 +12,7 @@ fi
 # Read the CSV file and set environment variables
 while IFS=, read -r access_key secret_key; do
   export TF_VAR_aws_access_key="$access_key"
-  export TF_VAR_aws_secret_key="$secret_key"
+  export TF_VAR_aws_secret_key=$(echo $secret_key | sed 's/\r$//')
 done < "$CSV_FILE"
 
 echo $TF_VAR_aws_access_key
