@@ -18,6 +18,12 @@ done < "$CSV_FILE"
 echo $TF_VAR_aws_access_key
 echo $TF_VAR_aws_secret_key
 
-terraform init
-terraform apply
+#terraform init
+#terraform apply
 
+if [ "$1" == "--build" ];then
+  terraform init
+  terraform apply
+elif [ "$1" == "--destroy" ];then
+  terraform destroy
+fi

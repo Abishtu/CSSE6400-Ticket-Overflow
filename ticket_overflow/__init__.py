@@ -14,14 +14,20 @@ DynamoDB setup:
 """
 # Create resource
 os.environ['AWS_SHARED_CREDENTIALS_FILE'] = 'credentials'
+"""
+For Local DB:
 ddb_session = boto3.Session(aws_access_key_id="anything",
                             aws_secret_access_key="anything",
-                            region_name="us-west-2")
+                            region_name="ap-southeast-2")
 ddb = ddb_session.resource('dynamodb', 
                            endpoint_url='http://dynamodb-local:8000',
-                           region_name='us-west-2',
+                           region_name='ap-southeast-2',
                            aws_access_key_id="anything",
                            aws_secret_access_key="anything")
+"""
+ddb_session = boto3.Session(region_name="ap-southeast-2")
+ddb = ddb_session.resource('dynamodb', 
+                           region_name='ap-southeast-2')
 
 # Create Tables
 try: 

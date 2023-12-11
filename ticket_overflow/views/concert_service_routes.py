@@ -8,7 +8,6 @@ from ticket_overflow.tasks import hamilton
 from boto3.dynamodb.conditions import Attr
 
 
-
 api = Blueprint('concertAPI', __name__, url_prefix='/api/v1')
 table = ddb.Table('Concerts')
 ticketsTable = ddb.Table('Tickets')
