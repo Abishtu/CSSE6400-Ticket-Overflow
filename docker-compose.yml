@@ -1,15 +1,15 @@
 version: "3.9"
 
 services:
-  dynamodb-local:
-    # command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data/db"
-    image: "amazon/dynamodb-local:latest"
-    container_name: dynamodb-local
-    ports:
-      - "8000:8000"
-    # volumes:
-    #   - "./data/db:/home/dynamodblocal/data"
-    # working_dir: /home/dynamodblocal
+  # dynamodb-local:
+  #   # command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data/db"
+  #   image: "amazon/dynamodb-local:latest"
+  #   container_name: dynamodb-local
+  #   ports:
+  #     - "8000:8000"
+  #   # volumes:
+  #   #   - "./data/db:/home/dynamodblocal/data"
+  #   # working_dir: /home/dynamodblocal
   app:
     build:
       context: .
@@ -24,8 +24,8 @@ services:
       CELERY_RESULT_BACKEND: redis://redis:6379
     ports:
       - "80:6400"
-    depends_on:
-      - dynamodb-local
+    # depends_on:
+    #   - dynamodb-local
   worker:
     build: 
       context: .
