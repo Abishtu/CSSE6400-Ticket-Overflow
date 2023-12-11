@@ -9,5 +9,5 @@ sudo systemctl start docker.service
 sudo systemctl start docker.socket
 sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-git clone https://github.com/Abishtu/CSSE6400-Ticket-Overflow.git /home/ec2-user/CSSE6400-Ticket-Overflow
+git clone --branch terraform_deployment https://github.com/Abishtu/CSSE6400-Ticket-Overflow.git /home/ec2-user/CSSE6400-Ticket-Overflow
 docker-compose -f /home/ec2-user/CSSE6400-Ticket-Overflow/docker-compose.yml up --build
