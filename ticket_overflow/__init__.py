@@ -25,7 +25,7 @@ ddb = ddb_session.resource('dynamodb',
                            aws_access_key_id="anything",
                            aws_secret_access_key="anything")
 """
-ddb_session = boto3.Session(region_name="ap-southeast-2")
+ddb_session = boto3.Session('dynamodb', region_name="ap-southeast-2")
 ddb = ddb_session.resource('dynamodb', 
                            region_name='ap-southeast-2')
 
