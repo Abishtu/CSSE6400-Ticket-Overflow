@@ -105,13 +105,7 @@ try:
                             batch.put_item(Item=user)
 except:
     print("Tables already created")
-    userTable = ddb.Table('Users')
-    with open("./ticket_overflow/users.json", "r") as dummyUsersFile:
-            users = json.loads(dummyUsersFile.read())
-            with userTable.batch_writer() as batch:
-                    for user in users:
-                            batch.put_item(Item=user)
-
+    
 def create_app():
     app = Flask(__name__)
     
