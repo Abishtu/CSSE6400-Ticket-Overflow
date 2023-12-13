@@ -11,6 +11,7 @@ gunicorn = "*"
 celery = {extras = ["dynamodb"], version = "*"}
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3"

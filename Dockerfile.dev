@@ -12,7 +12,8 @@ RUN pipenv install --system --deploy
 COPY bin bin
 COPY out out
 COPY ticket_overflow ticket_overflow
-COPY ticket_overflow/users.json ticket_overflow/users.json
+COPY ticket_overflow/users.json ticket_overflow/users_dummy.json
+COPY userData.json userData.json
 
 
 RUN chmod +x /app/bin/hamilton

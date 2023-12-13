@@ -40,3 +40,6 @@ workshop_accessKeys.csv
 **/auth/*.csv
 **/auth/*.pub
 **/auth/*.pem
+
+# Jupyter Notebook Stuff
+*.ipynb
