@@ -146,7 +146,7 @@ resource "aws_instance" "ec2_instance" {
   aws configure set default.region $AWS_REGION
 
   git clone --branch terraform_deployment https://github.com/Abishtu/CSSE6400-Ticket-Overflow.git /home/ec2-user/CSSE6400-Ticket-Overflow
-  aws dynamodb batch-write-item --request-items file://home/ec2-user/CSSE6400-Ticket-Overflow/userData.json
+  aws dynamodb batch-write-item --request-items file:///home/ec2-user/CSSE6400-Ticket-Overflow/userData.json
   docker-compose -f /home/ec2-user/CSSE6400-Ticket-Overflow/docker-compose.yml up --build
 
   EOF
