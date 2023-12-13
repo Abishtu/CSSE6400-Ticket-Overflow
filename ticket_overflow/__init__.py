@@ -13,7 +13,7 @@ DynamoDB setup:
 2. Get boto3 pip package
 """
 # Create resource
-os.environ['AWS_SHARED_CREDENTIALS_FILE'] = 'credentials'
+os.environ['AWS_ACCESS_KEY_ID']
 """
 For Local DB:
 ddb_session = boto3.Session(aws_access_key_id="anything",
@@ -25,9 +25,14 @@ ddb = ddb_session.resource('dynamodb',
                            aws_access_key_id="anything",
                            aws_secret_access_key="anything")
 """
-ddb_session = boto3.Session('dynamodb', region_name="ap-southeast-2")
+ddb_session = boto3.Session('dynamodb',
+                            aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+                            aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
+                            region_name=os.environ['AWS_REGION'])
 ddb = ddb_session.resource('dynamodb', 
-                           region_name='ap-southeast-2')
+                           aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+                           aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
+                           region_name=os.environ['AWS_REGION'])
 
 # Create Tables
 try: 

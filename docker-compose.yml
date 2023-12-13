@@ -20,6 +20,7 @@ services:
     environment:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_KEY}
+      AWS_REGION: ${AWS_REGION}
       CELERY_BROKER_URL: redis://redis:6379 
       CELERY_RESULT_BACKEND: redis://redis:6379
     ports:
@@ -36,6 +37,7 @@ services:
     environment:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_KEY}
+      AWS_REGION: ${AWS_REGION}
       CELERY_BROKER_URL: redis://redis:6379 
       CELERY_RESULT_BACKEND: redis://redis:6379
     command: celery --app ticket_overflow.tasks.hamilton worker --loglevel=info
