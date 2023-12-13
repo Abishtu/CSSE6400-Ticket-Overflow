@@ -112,7 +112,7 @@ def create_app():
                         for user in users:
                                 batch.put_item(Item=user)
     except Exception as e:
-        pass
+        print(e)
     
     # Register the blueprints
     from ticket_overflow.views.\
