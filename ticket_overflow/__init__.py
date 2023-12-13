@@ -40,67 +40,7 @@ except Exception as e:
     ddb_session = None
     ddb = None
     print(e)
-
-# Create Tables
-try: 
-    ddb.create_table(TableName='Concerts',
-                        AttributeDefinitions=[
-                                {
-                                'AttributeName': 'id',
-                                'AttributeType': 'S'
-                                }
-                        ],
-                        KeySchema=[
-                                {
-                                'AttributeName': 'id',
-                                'KeyType': 'HASH'
-                                }
-                        ],
-                        ProvisionedThroughput= {
-                                'ReadCapacityUnits': 10,
-                                'WriteCapacityUnits': 10
-                        }
-                    )
-    ddb.create_table(TableName='Users',
-                    AttributeDefinitions=[
-                            {
-                            'AttributeName': 'id',
-                            'AttributeType': 'S'
-                            }
-                    ],
-                    KeySchema=[
-                            {
-                            'AttributeName': 'id',
-                            'KeyType': 'HASH'
-                            }
-                    ],
-                    ProvisionedThroughput= {
-                            'ReadCapacityUnits': 10,
-                            'WriteCapacityUnits': 10
-                    }
-                    )
-    ddb.create_table(TableName='Tickets',
-                    AttributeDefinitions=[
-                            {
-                            'AttributeName': 'id',
-                            'AttributeType': 'S'
-                            }
-                    ],
-                    KeySchema=[
-                            {
-                            'AttributeName': 'id',
-                            'KeyType': 'HASH'
-                            }
-                    ],
-                    ProvisionedThroughput= {
-                            'ReadCapacityUnits': 10,
-                            'WriteCapacityUnits': 10
-                    }
-                    )
-except Exception as e:
-    print("Tables already created", e)
-
-
+    
 def create_app():
     app = Flask(__name__)
     

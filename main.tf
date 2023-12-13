@@ -61,6 +61,56 @@ resource "aws_security_group" "ticket_overflow_security_group" {
   }
 }
 
+resource "aws_dynamodb_table" "ConcertsTable" {
+  name = "Concerts"
+  billing_mode = "PROVISIONED"
+  read_capacity = 10
+  write_capacity = 10
+  hash_key = "id"
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
+  tags = {
+    Name = "ConcertsTable"
+  }
+}
+
+resource "aws_dynamodb_table" "TicketsTable" {
+  name = "Tickets"
+  billing_mode = "PROVISIONED"
+  read_capacity = 10
+  write_capacity = 10
+  hash_key = "id"
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
+  tags = {
+    Name = "TicketsTable"
+  }
+}
+
+resource "aws_dynamodb_table" "UsersTable" {
+  name = "Users"
+  billing_mode = "PROVISIONED"
+  read_capacity = 10
+  write_capacity = 10
+  hash_key = "id"
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+  tags = {
+    Name = "UsersTable"
+  }
+}
+
 resource "aws_instance" "ec2_instance" {
   ami = "ami-0f5f922f781854672"
   instance_type = "t3.micro"
