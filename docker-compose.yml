@@ -18,8 +18,8 @@ services:
     # volumes:
     #   - ./ticket_overflow:/app/ticket_overflow
     environment:
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_KEY}
+      AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
+      AWS_SECRET_KEY: ${AWS_SECRET_KEY}
       AWS_REGION: ${AWS_REGION}
       CELERY_BROKER_URL: redis://redis:6379 
       CELERY_RESULT_BACKEND: redis://redis:6379
@@ -35,8 +35,8 @@ services:
     volumes:
       - ./credentials:/root/.aws/credentials
     environment:
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_KEY}
+      AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
+      AWS_SECRET_KEY: ${AWS_SECRET_KEY}
       AWS_REGION: ${AWS_REGION}
       CELERY_BROKER_URL: redis://redis:6379 
       CELERY_RESULT_BACKEND: redis://redis:6379

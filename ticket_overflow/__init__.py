@@ -13,8 +13,8 @@ DynamoDB setup:
 2. Get boto3 pip package
 """
 # Create resource
-AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
+AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
 AWS_REGION = os.environ.get('AWS_REGION')
 
 """
@@ -29,10 +29,17 @@ ddb = ddb_session.resource('dynamodb',
                            aws_secret_access_key="anything")
 """
 try:
-    ddb_session = boto3.Session('dynamodb')
-    ddb = ddb_session.resource('dynamodb')
-except:
-    print(f"{AWS_ACCESS_KEY}::{AWS_REGION}::{AWS_SECRET_KEY}")
+    ddb_session = boto3.Session(aws_access_key_id=str(AWS_ACCESS_KEY),
+                                aws_secret_access_key=str(AWS_SECRET_KEY),
+                                region_name=str(AWS_REGION))
+    ddb = ddb_session.resource('dynamodb',
+                               aws_access_key_id=str(AWS_ACCESS_KEY),
+                               aws_secret_access_key=str(AWS_SECRET_KEY),
+                               region_name=str(AWS_REGION))
+except Exception as e:
+    ddb_session = None
+    ddb = None
+    print(e)
 
 # Create Tables
 try: 
