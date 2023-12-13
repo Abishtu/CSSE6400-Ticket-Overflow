@@ -28,14 +28,8 @@ ddb = ddb_session.resource('dynamodb',
                            aws_access_key_id="anything",
                            aws_secret_access_key="anything")
 """
-ddb_session = boto3.Session('dynamodb',
-                            aws_access_key_id=AWS_ACCESS_KEY,
-                            aws_secret_access_key=AWS_SECRET_KEY,
-                            region_name=AWS_REGION)
-ddb = ddb_session.resource('dynamodb', 
-                           aws_access_key_id=AWS_ACCESS_KEY,
-                           aws_secret_access_key=AWS_SECRET_KEY,
-                           region_name=AWS_REGION)
+ddb_session = boto3.Session('dynamodb')
+ddb = ddb_session.resource('dynamodb')
 
 # Create Tables
 try: 
