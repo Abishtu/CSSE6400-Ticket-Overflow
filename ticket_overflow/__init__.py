@@ -28,12 +28,15 @@ ddb = ddb_session.resource('dynamodb',
                            aws_access_key_id="anything",
                            aws_secret_access_key="anything")
 """
-ddb_session = boto3.Session('dynamodb')
-ddb = ddb_session.resource('dynamodb')
+try:
+    ddb_session = boto3.Session('dynamodb')
+    ddb = ddb_session.resource('dynamodb')
+except:
+    print(f"{AWS_ACCESS_KEY}::{AWS_REGION}::{AWS_SECRET_KEY}")
 
 # Create Tables
 try: 
-        ddb.create_table(TableName='Concerts',
+    ddb.create_table(TableName='Concerts',
                         AttributeDefinitions=[
                                 {
                                 'AttributeName': 'id',
@@ -50,45 +53,45 @@ try:
                                 'ReadCapacityUnits': 10,
                                 'WriteCapacityUnits': 10
                         }
-                        )
-        ddb.create_table(TableName='Users',
-                        AttributeDefinitions=[
-                                {
-                                'AttributeName': 'id',
-                                'AttributeType': 'S'
-                                }
-                        ],
-                        KeySchema=[
-                                {
-                                'AttributeName': 'id',
-                                'KeyType': 'HASH'
-                                }
-                        ],
-                        ProvisionedThroughput= {
-                                'ReadCapacityUnits': 10,
-                                'WriteCapacityUnits': 10
-                        }
-                        )
-        ddb.create_table(TableName='Tickets',
-                        AttributeDefinitions=[
-                                {
-                                'AttributeName': 'id',
-                                'AttributeType': 'S'
-                                }
-                        ],
-                        KeySchema=[
-                                {
-                                'AttributeName': 'id',
-                                'KeyType': 'HASH'
-                                }
-                        ],
-                        ProvisionedThroughput= {
-                                'ReadCapacityUnits': 10,
-                                'WriteCapacityUnits': 10
-                        }
-                        )
+                    )
+    ddb.create_table(TableName='Users',
+                    AttributeDefinitions=[
+                            {
+                            'AttributeName': 'id',
+                            'AttributeType': 'S'
+                            }
+                    ],
+                    KeySchema=[
+                            {
+                            'AttributeName': 'id',
+                            'KeyType': 'HASH'
+                            }
+                    ],
+                    ProvisionedThroughput= {
+                            'ReadCapacityUnits': 10,
+                            'WriteCapacityUnits': 10
+                    }
+                    )
+    ddb.create_table(TableName='Tickets',
+                    AttributeDefinitions=[
+                            {
+                            'AttributeName': 'id',
+                            'AttributeType': 'S'
+                            }
+                    ],
+                    KeySchema=[
+                            {
+                            'AttributeName': 'id',
+                            'KeyType': 'HASH'
+                            }
+                    ],
+                    ProvisionedThroughput= {
+                            'ReadCapacityUnits': 10,
+                            'WriteCapacityUnits': 10
+                    }
+                    )
 except:
-      print("Tables already created")
+    print("Tables already created")
 
 def create_app():
     app = Flask(__name__)
