@@ -8,14 +8,39 @@ from ticket_overflow.util.Constants import HAMILTON_TICKET_GEN, \
                                            HAMILTON_SEATING_GEN
 
 from celery import Celery
+from kombu.utils.url import safequote
 
-celery = Celery(__name__) 
-celery.conf.broker_url = os.environ.get("CELERY_BROKER_URL") 
-celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND") 
-celery.conf.task_default_queue = os.environ.get("CELERY_DEFAULT_QUEUE", 
-                                                "hamilton")
+aws_access_key = safequote(os.environ.get("AWS_ACCESS_KEY"))
+aws_secret_key = safequote(os.environ.get("AWS_SECRET_KEY"))
+aws_region = safequote(os.environ.get("AWS_REGION"))
+
+celery = Celery(__name__)
+# celery.conf.broker_url = os.environ.get("CELERY_BROKER_URL")
+# celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND")
+# celery.conf.task_default_queue = os.environ.get("CELERY_DEFAULT_QUEUE",
+#                                                 "hamilton")
+
+celery.conf.broker_url = f"sqs://{aws_access_key}:{aws_secret_key}@{aws_region}"
+celery.conf.task_default_queue = "hamilton_tasks"
+celery.conf.broker_transport_options = {
+        "predefined_queues": {
+            "hamilton_tasks": {
+                "url": "https://sqs.ap-southeast-2.amazonaws.com/951094886160/hamilton-tasks"
+            }
+        },
+        "region": aws_region
+    }
+celery.conf.result_backend = None
+# celery.conf.task_default_queue = os.environ.get("CELERY_DEFAULT_QUEUE",
+#                                                 "hamilton")
 
 logger = logging.getLogger(__name__)
+
+logger.warning(os.environ.get("AWS_ACCESS_KEY_ID"))
+logger.warning(os.environ.get("AWS_SECRET_ACCESS_KEY"))
+
+logger.warning(aws_access_key)
+logger.warning(aws_secret_key)
 
 def run_hamilton_generation(option: str, id: str):
     file_gen = subprocess.Popen(["./bin/hamilton", 'generate', 

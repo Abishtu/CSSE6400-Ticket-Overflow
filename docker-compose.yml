@@ -10,6 +10,11 @@ services:
   #   # volumes:
   #   #   - "./data/db:/home/dynamodblocal/data"
   #   # working_dir: /home/dynamodblocal
+  # redis:
+  #   image: redis:latest
+  #   restart: always
+  #   ports:
+  #     - "6379:6379"
   app:
     build:
       context: .
@@ -20,9 +25,9 @@ services:
     environment:
       AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
       AWS_SECRET_KEY: ${AWS_SECRET_KEY}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_KEY}
       AWS_REGION: ${AWS_REGION}
-      CELERY_BROKER_URL: redis://redis:6379 
-      CELERY_RESULT_BACKEND: redis://redis:6379
     ports:
       - "80:6400"
     # depends_on:
@@ -38,14 +43,6 @@ services:
       AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
       AWS_SECRET_KEY: ${AWS_SECRET_KEY}
       AWS_REGION: ${AWS_REGION}
-      CELERY_BROKER_URL: redis://redis:6379 
-      CELERY_RESULT_BACKEND: redis://redis:6379
-    command: celery --app ticket_overflow.tasks.hamilton worker --loglevel=info
+    command: python3 -m celery --app ticket_overflow.tasks.hamilton worker --loglevel=debug
     depends_on:
       - app
-
-  redis:
-    image: redis:latest
-    restart: always
-    ports:
-      - "6379:6379"

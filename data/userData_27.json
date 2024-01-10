@@ -1,0 +1,379 @@
+{
+    "Users": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000676"
+                    },
+                    "name": {
+                        "S": "Sydnee Roberts"
+                    },
+                    "email": {
+                        "S": "johnston.eddie@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000677"
+                    },
+                    "name": {
+                        "S": "Ryleigh Torphy"
+                    },
+                    "email": {
+                        "S": "rippin@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000678"
+                    },
+                    "name": {
+                        "S": "Granville Murazik"
+                    },
+                    "email": {
+                        "S": "o_kon.sandra@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000679"
+                    },
+                    "name": {
+                        "S": "Armando Bode"
+                    },
+                    "email": {
+                        "S": "cathy.schmidt@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000680"
+                    },
+                    "name": {
+                        "S": "Mr. Fredrick Windler Jr."
+                    },
+                    "email": {
+                        "S": "megane.stanton@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000681"
+                    },
+                    "name": {
+                        "S": "Mr. Giovani Kulas I"
+                    },
+                    "email": {
+                        "S": "raphael.kunze@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000682"
+                    },
+                    "name": {
+                        "S": "Mr. Jensen Murphy"
+                    },
+                    "email": {
+                        "S": "dakota.greenholt@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000683"
+                    },
+                    "name": {
+                        "S": "Ms. Lucie Kuhlman I"
+                    },
+                    "email": {
+                        "S": "bogisich.euna@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000684"
+                    },
+                    "name": {
+                        "S": "Nora Hermiston"
+                    },
+                    "email": {
+                        "S": "jakubowski.charlie@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000685"
+                    },
+                    "name": {
+                        "S": "Garnet Wiza"
+                    },
+                    "email": {
+                        "S": "mante.aidan@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000686"
+                    },
+                    "name": {
+                        "S": "Ms. Muriel Lakin PhD"
+                    },
+                    "email": {
+                        "S": "romaguera.adah@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000687"
+                    },
+                    "name": {
+                        "S": "Neha Welch"
+                    },
+                    "email": {
+                        "S": "easton.runolfsdottir@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000688"
+                    },
+                    "name": {
+                        "S": "Kacie Rowe"
+                    },
+                    "email": {
+                        "S": "lowe@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000689"
+                    },
+                    "name": {
+                        "S": "Isaac Rau"
+                    },
+                    "email": {
+                        "S": "yolanda@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000690"
+                    },
+                    "name": {
+                        "S": "Priscilla Lebsack III"
+                    },
+                    "email": {
+                        "S": "klein.jaquelin@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000691"
+                    },
+                    "name": {
+                        "S": "Matilda Mosciski"
+                    },
+                    "email": {
+                        "S": "george.kshlerin@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000692"
+                    },
+                    "name": {
+                        "S": "Elinor Kihn"
+                    },
+                    "email": {
+                        "S": "bailey.blanca@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000693"
+                    },
+                    "name": {
+                        "S": "Joan Gusikowski"
+                    },
+                    "email": {
+                        "S": "kuphal@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000694"
+                    },
+                    "name": {
+                        "S": "Ms. Gia Hermann"
+                    },
+                    "email": {
+                        "S": "goyette.lexi@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000695"
+                    },
+                    "name": {
+                        "S": "Jettie Collier"
+                    },
+                    "email": {
+                        "S": "hansen.jacklyn@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000696"
+                    },
+                    "name": {
+                        "S": "Adan Dooley"
+                    },
+                    "email": {
+                        "S": "dock@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000697"
+                    },
+                    "name": {
+                        "S": "Jarvis Hermann"
+                    },
+                    "email": {
+                        "S": "demarco@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000698"
+                    },
+                    "name": {
+                        "S": "Jasper Brakus DDS"
+                    },
+                    "email": {
+                        "S": "tatyana@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000699"
+                    },
+                    "name": {
+                        "S": "Bette Walter"
+                    },
+                    "email": {
+                        "S": "suzanne@example.org"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "id": {
+                        "S": "00000000-0000-0000-0000-000000000700"
+                    },
+                    "name": {
+                        "S": "Ms. Zelma Collier"
+                    },
+                    "email": {
+                        "S": "zemlak@example.org"
+                    }
+                }
+            }
+        }
+    ]
+}
