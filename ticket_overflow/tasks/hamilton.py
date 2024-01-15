@@ -20,17 +20,17 @@ celery = Celery(__name__)
 # celery.conf.task_default_queue = os.environ.get("CELERY_DEFAULT_QUEUE",
 #                                                 "hamilton")
 
-celery.conf.broker_url = f"sqs://{aws_access_key}:{aws_secret_key}@{aws_region}"
-celery.conf.task_default_queue = "hamilton_tasks"
-celery.conf.broker_transport_options = {
-        "predefined_queues": {
-            "hamilton_tasks": {
-                "url": "https://sqs.ap-southeast-2.amazonaws.com/951094886160/hamilton-tasks"
-            }
-        },
-        "region": aws_region
-    }
-celery.conf.result_backend = None
+# celery.conf.broker_url = f"sqs://{aws_access_key}:{aws_secret_key}@{aws_region}"
+# celery.conf.task_default_queue = "hamilton_tasks"
+# celery.conf.broker_transport_options = {
+#         "predefined_queues": {
+#             "hamilton_tasks": {
+#                 "url": "https://sqs.ap-southeast-2.amazonaws.com/951094886160/hamilton-tasks"
+#             }
+#         },
+#         "region": aws_region
+#     }
+# celery.conf.result_backend = None
 # celery.conf.task_default_queue = os.environ.get("CELERY_DEFAULT_QUEUE",
 #                                                 "hamilton")
 

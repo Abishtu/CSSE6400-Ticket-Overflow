@@ -15,6 +15,10 @@ services:
   #   restart: always
   #   ports:
   #     - "6379:6379"
+  rabbitmq:
+    image: "rabbitmq:3.8"
+    ports:
+      - "5672:5672"
   app:
     build:
       context: .
@@ -30,8 +34,6 @@ services:
       AWS_REGION: ${AWS_REGION}
     ports:
       - "80:6400"
-    # depends_on:
-    #   - dynamodb-local
   worker:
     build: 
       context: .
@@ -46,3 +48,4 @@ services:
     command: python3 -m celery --app ticket_overflow.tasks.hamilton worker --loglevel=debug
     depends_on:
       - app
+      - rabbitmq
