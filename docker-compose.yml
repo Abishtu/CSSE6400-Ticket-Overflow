@@ -7,16 +7,21 @@ services:
   #   container_name: dynamodb-local
   #   ports:
   #     - "8000:8000"
-  #   # volumes:
-  #   #   - "./data/db:/home/dynamodblocal/data"
-  #   # working_dir: /home/dynamodblocal
+    # volumes:
+    #   - "./data/db:/home/dynamodblocal/data"
+    # working_dir: /home/dynamodblocal
   # redis:
   #   image: redis:latest
   #   restart: always
   #   ports:
   #     - "6379:6379"
   rabbitmq:
-    image: "rabbitmq:3.8"
+    image: "rabbitmq:latest"
+    restart: always
+    hostname: "rabbit1"
+    environment:
+        RABBITMQ_DEFAULT_USER: "user"
+        RABBITMQ_DEFAULT_PASS: "password"
     ports:
       - "5672:5672"
   app:
@@ -45,6 +50,7 @@ services:
       AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
       AWS_SECRET_KEY: ${AWS_SECRET_KEY}
       AWS_REGION: ${AWS_REGION}
+      CELERY_BROKER_URL: amqp://user:password@rabbit1:5672
     command: python3 -m celery --app ticket_overflow.tasks.hamilton worker --loglevel=debug
     depends_on:
       - app

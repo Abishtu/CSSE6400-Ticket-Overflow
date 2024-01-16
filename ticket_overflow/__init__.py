@@ -22,7 +22,7 @@ For Local DB:
 ddb_session = boto3.Session(aws_access_key_id="anything",
                             aws_secret_access_key="anything",
                             region_name="ap-southeast-2")
-ddb = ddb_session.resource('dynamodb', 
+ddb = ddb_session.resource('dynamodb',
                            endpoint_url='http://dynamodb-local:8000',
                            region_name='ap-southeast-2',
                            aws_access_key_id="anything",
