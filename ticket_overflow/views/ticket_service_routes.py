@@ -17,6 +17,7 @@ from celery.result import AsyncResult
 
 import os
 
+import traceback
 
 import time
 
@@ -223,7 +224,8 @@ def start_ticket_print(id: str) -> Tuple[Response, int]:
                 }
             )
         except Exception as e:
-            return jsonify({"error": f"Unknown error occured, could not start printng {e}"}), 500
+            return jsonify({"error": f"Unknown error occured, could not start printng {e}",
+                            "traceback": f"{traceback.format_exc()}"}), 500
     
     return jsonify({"alert": "ticket is printing"}), 202
 

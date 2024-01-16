@@ -9,7 +9,8 @@ boto3 = "*"
 redis = "*"
 gunicorn = "*"
 python-lsp-server = {extras = ["all"], version = "*"}
-celery = {extras = ["sqs"], version = "*"}
+celery = {extras = ["redis"], version = "*"}
+async-timeout = "*"
 
 [dev-packages]
 ipykernel = "*"

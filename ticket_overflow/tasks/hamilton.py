@@ -16,7 +16,7 @@ aws_region = safequote(os.environ.get("AWS_REGION"))
 
 celery = Celery(__name__)
 celery.conf.broker_url = os.environ.get("CELERY_BROKER_URL")
-# celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND")
+celery.conf.result_backend = os.environ.get("CELERY_RESULT_BACKEND")
 # celery.conf.task_default_queue = os.environ.get("CELERY_DEFAULT_QUEUE",
 #                                                 "hamilton")
 
